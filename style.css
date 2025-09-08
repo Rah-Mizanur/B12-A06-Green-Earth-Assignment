@@ -9,3 +9,9 @@ body{
     background-size: contain;
 
 }
+
+@media (max-width:640) {
+    .banner{
+        background: ;
+    }
+}

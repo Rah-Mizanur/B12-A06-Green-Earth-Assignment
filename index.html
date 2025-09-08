@@ -39,7 +39,7 @@
 
     <main>
         <!-- banner section start  -->
-        <section class="banner bg-[#CFF0DC] w-full">
+        <section class="sm:banner bg-[#CFF0DC] w-full">
             <div class="flex flex-col py-25   justify-center items-center max-w-2xl mx-auto">
                 <h1 class="text-4xl font-bold py-4 text-center ">Plant a Tree, Grow a Future</h1>
                 <p class="text-xl font-medium py-4 text-center">Join our mission to plant 1 million trees and make the
@@ -58,16 +58,35 @@
                         <h2 class="text-xl font-medium text-left mb-4"> Categories </h2>
 
                         <ul class="flex flex-col gap-4 ">
-                          <li class="text-base font-medium hover:bg-green-400 list-none mb-4 categories rounded-lg p-1" id="plants">All Trees</li>
+                            <li class="text-base font-medium hover:bg-green-400 list-none mb-4 categories rounded-lg p-1"
+                                id="plants">All Trees</li>
                         </ul>
                     </div>
                 </aside>
-                <section id="items-container" class="col-span-3 bg-red-500 grid grid-cols-3 gap-4 ">
-                  
+                <section id="items-container" class="col-span-3 bg-red-500 grid grid-cols-3 gap-4 p-4">
+                   <div class=" rounded-xl bg-[whitesmoke] ">
+                        <div class="bg-gray-400">
+                            <img src="${item.image}" alt="${item.name} photo"  class=" w-full h-40">
+                        </div>
+                        <div class="p-3">
+                            <h2 class=" capitalize text-2xl font-bold "> ${item.name}</h2>
+                            <p class="texl-lg font-normal">${item.description}</p>
+                            <div class="flex justify-between">
+                                <span class="bg-[#DCFCE7] p-2 text-green-500 rounded-xl"> ${item.category}</span>
+                                <p> <span> ${item.price} </span>  BDT </p>
+                            </div>
+                            <div>
+                                <button class="w-full rounded-xl bg-green-700"> add to cart </button>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </section>
                 <aside id="items-cart-container" class="col-span-1 bg-green-500">
                     <h1> here iam cart </h1>
                 </aside>
+            </section>
         </section>
 
         <!-- categories section end here  -->
@@ -110,32 +129,34 @@
                         <h1 class="text-4xl text-green-500 font-bold mb-5 text-center "> 30+ </h1>
                         <p class="text-xl font-normal text-black text-center"> Countries Reached </p>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
         <!-- plant a tree section  -->
-        <section class="bg-green-700 items-center flex flex-col py-10">
+        <section class="bg-green-700 ">
+            <div class="items-center flex flex-col py-10 ">
 
-            <div>
-                <h1 class="text-4xl font-bold text-white mb-10"> Plant a Tree Today</h1>
+                <div>
+                    <h1 class="text-4xl font-bold text-white mb-10"> Plant a Tree Today</h1>
+                </div>
+                <form action="" class="flex flex-col bg-green-600 px-20 py-10 rounded-xl ">
+                    <input type="text" name="" id="" placeholder="Your Name"
+                        class="bg-white border-1 border-white rounded-xl p-2 mb-5">
+                    <br>
+                    <input type="email" name="" id="" placeholder="Your Email Address"
+                        class="bg-white border-1 border-white rounded-xl p-2 mb-5">
+                    <br>
+                    <select name="" id="" class="bg-white border-1 border-white rounded-xl p-2 mb-5">
+                        <option value="" class="bg-white hover:bg-blue-600"> Numbers of Trees</option>
+                        <option value="" class="bg-white hover:bg-blue-600"> 1 tree - $5 </option>
+                        <option value="" class="bg-white hover:bg-blue-600"> 2 tree - $10 </option>
+                        <option value="" class="bg-white hover:bg-blue-600"> 3 tree - $15 </option>
+                    </select>
+                    <button class="bg-yellow-400 rounded-4xl py-3 px-5 font-medium text-green-600 mt-5 w-full ">Get
+                        Involved</button>
+                </form>
             </div>
-            <form action="" class="flex flex-col bg-green-600 px-20 py-10 rounded-xl ">
-                <input type="text" name="" id="" placeholder="Your Name"
-                    class="bg-white border-1 border-white rounded-xl p-2 mb-5">
-                <br>
-                <input type="email" name="" id="" placeholder="Your Email Address"
-                    class="bg-white border-1 border-white rounded-xl p-2 mb-5">
-                <br>
-                <select name="" id="" class="bg-white border-1 border-white rounded-xl p-2 mb-5">
-                    <option value="" class="bg-white hover:bg-blue-600"> Numbers of Trees</option>
-                    <option value="" class="bg-white hover:bg-blue-600"> 1 tree - $5 </option>
-                    <option value="" class="bg-white hover:bg-blue-600"> 2 tree - $10 </option>
-                    <option value="" class="bg-white hover:bg-blue-600"> 3 tree - $15 </option>
-                </select>
-                <button class="bg-yellow-400 rounded-4xl py-3 px-5 font-medium text-green-600 mt-5 w-full ">Get
-                    Involved</button>
-            </form>
         </section>
 
     </main>
