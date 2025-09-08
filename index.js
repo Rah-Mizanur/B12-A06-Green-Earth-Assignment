@@ -1,8 +1,22 @@
 
 
 console.log("connected")
-const categoriesContainer = document.getElementById("categories-container")
-const itemsContainer = document.getElementById("items-container")
+const categoriesContainer = document.getElementById("categories-container");
+const itemsContainer = document.getElementById("items-container");
+const modalContainer = document.getElementById("modal-container");
+// const modal = document.getElementById("plant_tree_modal")
+
+const manageSpinner = ((status) =>{
+    if(status === true){
+        document.getElementById("spinner").classList.remove("hidden")
+        itemsContainer.classList.add("hidden")
+    }
+    else{
+        document.getElementById("spinner").classList.add("hidden")
+        itemsContainer.classList.remove("hidden")
+    }
+  
+})
 
 const loadCategories = () =>{
     const url = "https://openapi.programming-hero.com/api/categories"
@@ -37,6 +51,7 @@ const displayCategories = (categories) =>{
 
 
 const loadItems= (id) =>{
+    manageSpinner(true)
     if( id ==="plants" ){
        const url = `https://openapi.programming-hero.com/api/plants`
        fetch(url)
@@ -56,31 +71,63 @@ const displayItems = (items) =>{
   
     itemsContainer.innerHTML = "";
     items.forEach(item =>{
+        // console.log(item.id)
 
         const newItem = document.createElement("div")
-        newItem.innerHTML = `   <div class=" rounded-xl bg-[whitesmoke] h-full ">
+        newItem.innerHTML = `   <div class=" rounded-xl bg-[whitesmoke] shadow-lg h-full">
                         <div class="">
                             <img src="${item.image}" alt="${item.name} photo"  class=" w-full h-50 object-cover rounded-t-xl">
                         </div>
-                        <div class="p-3">
-                            <h2 class=" capitalize text-2xl font-bold item-name "> ${item.name}</h2>
+                        <div class="p-3" id="${item.id}">
+                            <h2 class=" capitalize text-2xl font-bold item-name " > ${item.name}</h2>
                             <p class="text-lg font-normal">${item.description}</p>
-                            <div class="flex justify-between">
+                            <div class="flex justify-between mb-2">
                                 <span class="bg-[#DCFCE7] p-2 text-green-500 rounded-xl"> ${item.category}</span>
-                                <p> <span> ${item.price} </span>  BDT </p>
+                                <p class="p-2"> <span id="${item.name}"> ${item.price} </span>  BDT </p>
                             </div>
                             <div>
-                                <button class="w-full rounded-xl bg-green-700 p-3"> add to cart </button>
+                                <button class="w-full rounded-xl bg-green-700 p-3 capitalize text-lg font-bold"> add to cart </button>
                             </div>
                         </div>
                     </div>`
 
                     itemsContainer.append(newItem)
+
     })
+    manageSpinner(false)
+
 }
 
 
 
+      itemsContainer.addEventListener("click",(e) =>{
+    if(e.target.className.includes("item-name")){
+       const title = e.target.parentNode.id
+       loadTreeDetails(title)
+    }
+})
+
+const loadTreeDetails = (id)=>{
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    fetch(url)
+    .then(res=> res.json())
+    .then(data => showTreeDetails(data.plants))
+}
+
+const showTreeDetails = (plant =>{
+    plant_tree_modal.showModal();
+
+    modalContainer.innerHTML =`<h3 class="text-xl font-bold mb-2 "> ${plant.name}</h3>
+        <div class=" rounded-xl mb-2"> 
+            <img src="${plant.image}" alt="${plant.name} photo" class="w-full h-80  object-cover rounded-xl">
+        </div>
+        <div class="flex flex-col gap-2">
+            <h2 class="text-base font-medium"> Categories : <span class=" text-sm font-normal">${plant.category}</span> </h2>
+            <h2 class="text-base font-medium"> Price : <span class=" text-sm font-normal"> ${plant.price}</span> BDT</h2>
+            <h2 class="text-base font-medium"> description :  <span class=" text-sm font-normal">${plant.description}</span></h2>
+        </div>`
+})
 
 
 loadCategories();
+loadItems('plants');
