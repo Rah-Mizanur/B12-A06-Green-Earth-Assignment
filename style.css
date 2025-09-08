@@ -2,16 +2,6 @@ body{
     font-family: "Inter", sans-serif;
 }
 .banner{
-    background-image: url(./assets/hero-leaf1.png) , url(./assets/hero-leaf2.png) ;
-    background-repeat: no-repeat;
     background-position: left, right;
-    background-blend-mode: multiply;
-    background-size: contain;
+} 
 
-}
-
-@media (max-width:640) {
-    .banner{
-        background: ;
-    }
-}

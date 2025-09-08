@@ -39,7 +39,7 @@
 
     <main>
         <!-- banner section start  -->
-        <section class="sm:banner bg-[#CFF0DC] w-full">
+        <section class="banner sm:bg-[url('./assets/hero-leaf1.png'),_url('./assets/hero-leaf2.png')] sm:bg-no-repeat sm:bg-blend-multiply sm:bg-contain bg-[#CFF0DC] w-full m-0">
             <div class="flex flex-col py-25   justify-center items-center max-w-2xl mx-auto w-[90%]">
                 <h1 class="text-4xl font-bold py-4 text-center ">Plant a Tree, Grow a Future</h1>
                 <p class="text-xl font-medium py-4 text-center">Join our mission to plant 1 million trees and make the
@@ -52,7 +52,7 @@
         <!-- catrgories section start here  -->
         <section class="w-11/12 mx-auto">
             <h1 class="text-4xl font-bold text-center my-10"> Choose Your Trees </h1>
-            <section class="grid grid-cols-5">
+            <section class="grid sm:grid-cols-5">
                 <aside id="categories-container" class="col-span-1">
                     <div>
                         <h2 class="text-xl font-medium text-left mb-4"> Categories </h2>
@@ -63,11 +63,11 @@
                         </ul>
                     </div>
                 </aside>
-                <section class="col-span-3">
+                <section class="sm:col-span-3">
                     <section id="spinner" class="flex justify-center items-center py-10 ">
                         <span class="loading loading-bars loading-xl"></span>
                     </section>
-                    <section id="items-container" class=" grid grid-cols-3 gap-4 p-4">
+                    <section id="items-container" class=" grid sm:grid-cols-3 gap-4  p-4">
 
                         <!-- <div class=" rounded-xl bg-[whitesmoke] ">
                             <div class="bg-gray-400">
@@ -92,42 +92,10 @@
                 <aside class="col-span-1 bg-green-500">
                     <h1 class=" text-xl font-medium "> Your Cart </h1>
                     <div id="cart-container">
-                        <div class=" p-2 ">
-                            <div class="flex bg-gray-50 rounded-xl justify-between p-2 items-center ">
-                                <div> 
-                                    <h1 class="text-xl font-bold"> tree naem </h1>
-                                    <p > <span id=""> 80 </span> BDT </p>
-                                </div>
-                                <div class="text-red-800 text-2xl "> 
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" p-2 ">
-                            <div class="flex bg-gray-50 rounded-xl justify-between p-2 items-center ">
-                                <div> 
-                                    <h1 class="text-xl font-bold"> tree naem </h1>
-                                    <p > <span id=""> 80 </span> BDT </p>
-                                </div>
-                                <div class="text-red-800 text-2xl "> 
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" p-2 ">
-                            <div class="flex bg-gray-50 rounded-xl justify-between p-2 items-center ">
-                                <div> 
-                                    <h1 class="text-xl font-bold"> tree naem </h1>
-                                    <p > <span id=""> 80 </span> BDT </p>
-                                </div>
-                                <div class="text-red-800 text-2xl "> 
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="text-end">
-                        <h2> Total : <span id="total price"> 7876</span> BDT</h2>
+                        <h2> Total : <span id="total-price">00</span> BDT</h2>
                     </div>
                 </aside>
             </section>

@@ -4,7 +4,8 @@ console.log("connected")
 const categoriesContainer = document.getElementById("categories-container");
 const itemsContainer = document.getElementById("items-container");
 const modalContainer = document.getElementById("modal-container");
-// const modal = document.getElementById("plant_tree_modal")
+const cartContainer = document.getElementById("cart-container");
+const totalPrice = document.getElementById("total-price")
 
 const manageSpinner = ((status) =>{
     if(status === true){
@@ -86,7 +87,7 @@ const displayItems = (items) =>{
                                 <p class="p-2"> <span id="${item.name}"> ${item.price} </span>  BDT </p>
                             </div>
                             <div>
-                                <button class="w-full rounded-xl bg-green-700 p-3 capitalize text-lg font-bold"> add to cart </button>
+                                <button class="w-full rounded-xl bg-green-700 p-3 capitalize text-lg font-bold cart-btn"> add to cart </button>
                             </div>
                         </div>
                     </div>`
@@ -105,6 +106,26 @@ const displayItems = (items) =>{
        const title = e.target.parentNode.id
        loadTreeDetails(title)
     }
+    if(e.target.className.includes("cart-btn")){{
+        const button = e.target 
+        const title = button.parentNode.parentNode.children[0].innerText
+        const price = button.parentNode.parentNode.children[2].children[1].children[0].innerText
+        cartContainer.innerHTML +=` <div class=" p-2 " >
+                            <div class="flex bg-gray-50 rounded-xl justify-between p-2 items-center ">
+                                <div> 
+                                    <h1 class="text-xl font-bold"> ${title} </h1>
+                                    <p > <span id=""> ${price}</span> BDT </p>
+                                </div>
+                                <div class="text-red-800 text-2xl "> 
+                                    <i class="fa-solid fa-xmark deleteBtn"></i>
+                                </div>
+                            </div>
+                        </div>`
+
+        currentPrice = Number(totalPrice.innerText) + Number(price)
+        totalPrice.innerText = currentPrice ;
+
+    }}
 })
 
 const loadTreeDetails = (id)=>{
@@ -123,9 +144,18 @@ const showTreeDetails = (plant =>{
         </div>
         <div class="flex flex-col gap-2">
             <h2 class="text-base font-medium"> Categories : <span class=" text-sm font-normal">${plant.category}</span> </h2>
-            <h2 class="text-base font-medium"> Price : <span class=" text-sm font-normal"> ${plant.price}</span> BDT</h2>
+            <h2 class="text-base font-medium"> Price : <span class=" text-base font-medium"> ${plant.price}</span> BDT</h2>
             <h2 class="text-base font-medium"> description :  <span class=" text-sm font-normal">${plant.description}</span></h2>
         </div>`
+})
+
+
+cartContainer.addEventListener("click", (e) =>{
+    if(e.target.className.includes("deleteBtn")){
+        const deleteBtn = e.target;
+        
+    }
+    // console.log(e.target)
 })
 
 
