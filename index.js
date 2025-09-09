@@ -71,7 +71,9 @@ const loadItems = (id) => {
 // display items by categories
 const displayItems = (items) => {
     itemsContainer.innerHTML = "";
+    
     items.forEach(item => {
+        // const longDescription = ${item.description}
         const newItem = document.createElement("div")
         newItem.innerHTML = `   <div class=" rounded-xl bg-[whitesmoke] shadow-lg h-full">
                         <div class="">
@@ -79,7 +81,7 @@ const displayItems = (items) => {
                         </div>
                         <div class="p-3" id="${item.id}">
                             <h2 class=" capitalize text-2xl font-bold item-name " > ${item.name}</h2>
-                            <p class="text-lg font-normal">${item.description}</p>
+                            <p class="text-lg font-normal line-clamp-3">${item.description}</p>
                             <div class="flex justify-between mb-2">
                                 <span class="bg-[#DCFCE7] p-2 text-green-500 rounded-xl"> ${item.category}</span>
                                 <p class="p-2"> <span id="${item.name}"> ${item.price} </span>  BDT </p>
