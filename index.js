@@ -109,7 +109,7 @@ itemsContainer.addEventListener("click", (e) => {
             const button = e.target
             const title = button.parentNode.parentNode.children[0].innerText
             const price = button.parentNode.parentNode.children[2].children[1].children[0].innerText
-            cartContainer.innerHTML += ` <div class=" p-2 " >
+            cartContainer.innerHTML += ` <div class=" p-1 " >
                             <div class="flex bg-gray-100 rounded-xl justify-between p-2 items-center ">
                                 <div class="pl-1"> 
                                     <h1 class="text-xl font-bold"> ${title} </h1>
